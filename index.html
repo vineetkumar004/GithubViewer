@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html ng-app="githubViewer">
+<head>
+    <title>GitHubViewer</title>
+    <script src="Scripts/jquery-3.1.1.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <link href="Bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="Bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/angular.js"></script>
+    <script src="app/model/MainModel.js"></script>
+    <script src="app/controller/MainController.js"></script>
+	<meta charset="utf-8" />
+</head>
+<body ng-controller="mainController">
+    <div class="container">
+       <div class="alert-danger">{{error}}</div> 
+        <form name="searchUser" ng-submit="searchUserName(newUser)" class="form-horizontal" >
+            <div class="well form-group">
+                <input type="text" placeholder="Type the gihub username" ng-model="newUser" ng-change="checkForEmpty()" class="form-control"/>
+                <input type="submit" value="search" class="btn-toolbar col-sm-5 col-sm-push-3"/>
+            </div>
+            <br />
+            <div ng-include="'userDetail.html'" ng-show="user != null"></div>
+        </form>
+    </div>
+</body>
+</html>
